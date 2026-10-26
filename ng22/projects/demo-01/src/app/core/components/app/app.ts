@@ -21,5 +21,5 @@ import { CourseItemSignals } from '../../../features/courses/components/course-i
   `,
 })
 export class App {
-  protected readonly title = signal('Demo 01');
+  private readonly title = signal('Demo 01');
 }

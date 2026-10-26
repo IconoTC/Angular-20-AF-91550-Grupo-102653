@@ -45,5 +45,7 @@ export class CourseItemSignals {
     });
       console.log('Course changed to:', this.course());
     }, 4000);
-  }
+ 
+ }
+ 
 }
