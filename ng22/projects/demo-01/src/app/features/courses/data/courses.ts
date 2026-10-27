@@ -4,14 +4,14 @@ export const COURSES: Course[] = [{
   id: 1,
   title: "Angular Basics",
   description: "Learn the basics of Angular",
-  duration: "2 hours",
+  duration: "30 hours",
   level:  "beginner",
   isOfficial: true,
   image: "/assets/angular-fundamentals.webp",
   courseStats: {
-    difficulty: 1,
-    actualization: 1,
-    utility: 1
+    difficulty: 8,
+    actualization: 7,
+    utility: 8
   }
 }];
 

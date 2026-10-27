@@ -2,9 +2,10 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CourseItem } from '../../../features/courses/components/course-item/course-item';
 import { CourseItemSignals } from '../../../features/courses/components/course-item-signals/course-item-signals';
+import { CourseDetails } from '../../../features/courses/components/course-details/course-details';
 
 @Component({
-  imports: [RouterOutlet, CourseItem, CourseItemSignals],
+  imports: [RouterOutlet, CourseItem, CourseItemSignals, CourseDetails],
   selector: 'ind-root',
   styles: [],
   template: `
@@ -15,7 +16,8 @@ import { CourseItemSignals } from '../../../features/courses/components/course-i
       <summary>Otros ejemplos de Course Item</summary>
       <p>Ejemplo de componente con signals:</p>
       <ind-course-item-signals />
-    
+      <ind-course-details />
+
     </details>
     <router-outlet />
   `,

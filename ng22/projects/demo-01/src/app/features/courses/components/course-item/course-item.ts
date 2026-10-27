@@ -16,11 +16,14 @@ import { getCourses } from '../../data/courses';
       border: 1px solid var(--color-primary);
       border-radius: 4px;
     }
+    h2 {
+      margin: 0;
+    }
     p {
       color: blue;
     }
     img {
-      width: 300px;
+      width: 200px;
     }
   `,
   // styleUrls: ['./course.css'],
