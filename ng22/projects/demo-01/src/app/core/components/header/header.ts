@@ -1,12 +1,15 @@
 import { Component, signal } from '@angular/core';
-import { LogoCoders } from '../logo-coders/logo-coders';
 import { User } from '../user/user';
+import { Separator } from '../../design/separator/separator';
+import { Toggle } from '../toggle/toggle';
+import { Search } from '../search/search';
+import { SearchRef } from '../search-ref/search-ref';
 
 @Component({
-  imports: [LogoCoders, User],
+  imports: [User, Toggle, Search, SearchRef, Separator],
   selector: 'ind-header',
   styles: `
-   :host {
+    :host {
       margin-bottom: 1.5rem;
       min-height: 15vh;
       color: var(--color-primary-hot);
@@ -30,7 +33,7 @@ import { User } from '../user/user';
       max-width: 15rem;
     }
 
-     h1 {
+    h1 {
       color: var(--color-primary);
       font-family: var(--font-family-heading);
       font-optical-sizing: auto;
@@ -69,30 +72,37 @@ import { User } from '../user/user';
         margin-top: 1rem;
       }
     }
-`,
+  `,
   template: `
-     <header class="container">
+    <header class="container">
       <div class="left-side">
-        <ind-logo-coders />
+        <ng-content select="[slot=logo]"></ng-content>
       </div>
       <hgroup>
         <h1>{{ title() }}</h1>
       </hgroup>
       <div class="right-side">
         <div class="user-icons">
-          <ind-user />  
+          <ind-user />
         </div>
-        <div class="system-icons">System Icons (Toggle)</div>
+        <div class="system-icons">
+          <ind-toggle />
+        </div>
       </div>
       <div class="bottom-row">
         <p class="first-line">{{ subtitle() }}</p>
         <div class="second-line">
-          <div>Slot: Menu</div>
-          <div>Search</div>
+          <div>
+            <ng-content select="[slot=menu]"></ng-content>
+          </div>
+          <div>
+            <ind-search />
+            <ind-search-ref />
+          </div>
         </div>
       </div>
     </header>
-    <div>------Separador</div>
+    <ind-separator />
   `,
 })
 export class Header {

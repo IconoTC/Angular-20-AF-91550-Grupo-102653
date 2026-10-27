@@ -10,17 +10,13 @@ import { getCourses } from '../../data/courses';
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
-      margin: 1rem;
-      padding: 1rem;
-      border: 1px solid var(--color-primary);
-      border-radius: 4px;
+      gap: 1rem; 
     }
     h2 {
       margin: 0;
     }
     p {
-      color: blue;
+      color: var(--color-primary);
     }
     img {
       width: 200px;

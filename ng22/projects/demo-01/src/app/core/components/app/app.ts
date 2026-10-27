@@ -5,12 +5,15 @@ import { CourseItemSignals } from '../../../features/courses/components/course-i
 import { CourseDetails } from '../../../features/courses/components/course-details/course-details';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
+import { Card } from '../../design/card/card';
+import { LogoCoders } from '../logo-coders/logo-coders';
+import { Menu } from '../../design/menu/menu';
 
 @Component({
-  imports: [RouterOutlet, Header, Footer, CourseItem, CourseItemSignals, CourseDetails],
+  imports: [RouterOutlet, Header, Footer, Card, LogoCoders, Menu,CourseItem, CourseItemSignals, CourseDetails],
   selector: 'ind-root',
   styles: `
-   :host {
+    :host {
       display: grid;
       grid-template-rows: auto 1fr auto;
       min-height: 100vh;
@@ -31,9 +34,15 @@ import { Footer } from '../footer/footer';
     }
   `,
   template: `
-    <ind-header />
+    <ind-header>
+       <ind-logo-coders slot="logo" />
+       <ind-menu slot="menu" />
+    </ind-header>
     <main class="container">
-      <ind-course-item />
+      <ind-card> 
+        <ind-course-item />
+      </ind-card>
+
       <details>
         <summary>Otros ejemplos de Course Item</summary>
         <p>Ejemplo de componente con signals:</p>
