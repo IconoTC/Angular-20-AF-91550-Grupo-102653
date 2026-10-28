@@ -243,7 +243,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - 🧿Socials. @for + @switch: iconos svg de las redes sociales 
   - Test de Socials. Renderizado y @for @switch
 
-### Día 3 (X-28). Comunicaciones entre Componentes. Rutas, Servicios 
+### Día 3 (X-28). Comunicaciones entre Componentes. Rutas, Servicios. Pipes y directivas
 
 - Scaffolding. Features
   - Componentes (pages): 🧿Home, 🧿Dashboard, 🧿Courses, 🧿About (Angular).
@@ -267,7 +267,6 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 [descanso]: 11:30 - 12:00
 
-
 - Comunicación entre componentes (3) 
   - Estado en el componente padre (contenedor/controlador)
     - Input en los contadores. Revision de los totales
@@ -288,21 +287,19 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 -->
 
-<!-- - Rutas básicas. `app.routes.ts`
+- Rutas básicas. `app.routes.ts`
   - Array de rutas. Array de opciones de menu
   - RouterOutlet en AppComponent.
   - Navegación. Componente menu. @for
   - SPA: RouterLink y RouterLinkActive 
-  - Rutas Lazy. Default import en las páginas  -->
-
-<!-- 
-- Test las paginas (componentes) con rutas. RouterTestingHarness
--->
+  - Rutas Lazy. Default import en las páginas
+  - Fix test de componentes que utilizan rutas (Menu, App)
 
 [comida]: 14:00 - 15:00
 
+- Test las paginas (componentes) con rutas. RouterTestingHarness
 
-<!-- - 🧿Info. Componente para probar servicios...
+- 🧿Info. Componente para probar servicios...
 - Introducción a los servicios en Angular.
 
 - Servicios y Providers. DI (Dependency Injection)
@@ -311,28 +308,25 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Injector jerárquico. Servicios singleton y no singleton.  
 
   - Test del servicio TimeService
+
   - Test de componentes con servicios (mocks y spies).
     - Modificación del provider en el TestBed. `providers: [ { provide: TimeService, useValue: mockTimeService } ]`
-    - Modificación del provider en el componente. `TestBed.overrideProvider()`
+  <!-- - Modificación del provider en el componente. `TestBed.overrideProvider()` -->
 
 - Servicio Logger. 
   - environments de Angular
-  - Uso de tokens de inyección   -->
+  - Uso de tokens de inyección
 
 <!-- - Servicio Logger (final). 
   - Test del servicio Logger. Casos de uso 
   - 🧿Logger-Demo. Usos del servicio Logger
 -->
 
-<!-- - Pipes
-  - DatePipe. Location "es".  -->
-
-
-### Día 4 (J-29). Pipes y directivas. Formularios TD, DD, SD
-
-<!-- - Pipes
+- Pipes
+  - DatePipe. Location "es". 
   - Location "es".  Usar por defecto: inyección de dependencias
   - (Comentado) Pipes propios. Ejemplo: Pipe de `truncate`
+
 
 - Directivas. Estructurales y de atributo -->
 
@@ -342,6 +336,8 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Directivas estructurales: introducción
     - Directivas estructurales: Role (ngIf)
 -->
+
+### Día 4 (J-29). Servicios y asincronía. Formularios TD, DD, SD
 
 <!-- - Feature Auth
   
