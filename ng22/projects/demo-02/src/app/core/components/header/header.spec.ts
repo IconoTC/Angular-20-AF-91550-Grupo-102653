@@ -13,6 +13,9 @@ describe('Header', () => {
 
     fixture = TestBed.createComponent(Header);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('app-title', 'Demo Test');
+    fixture.componentRef.setInput('subtitle', 'Aprendiendo Testing Angular');
+    fixture.detectChanges();
     await fixture.whenStable();
   });
 
@@ -23,8 +26,8 @@ describe('Header', () => {
   // Test de implementación
   // test de caja blanca
 
-  it('should have as title "Demo 01"', () => {
-    expect(component['title']()).toEqual('Demo 02');
+  it('should have as title "Demo Test"', () => {
+    expect(component.title()).toEqual('Demo Test');
   });
 
   // Test de comportamiento
@@ -33,13 +36,13 @@ describe('Header', () => {
   it('should render title', async () => {
     const element = fixture.nativeElement as HTMLElement;
     const h1 = element.querySelector('h1');
-    expect(h1?.textContent).toContain('Demo 02');
+    expect(h1?.textContent).toContain('Demo Test');
   });
 
   it('should render title (by debug)', async () => {
     const debugElement = fixture.debugElement;
     const h1Debug = debugElement.query(By.css('h1'));
     const h1 = h1Debug?.nativeElement as HTMLElement;
-    expect(h1?.textContent).toContain('Demo 02');
+    expect(h1?.textContent).toContain('Demo Test');
   });
 });

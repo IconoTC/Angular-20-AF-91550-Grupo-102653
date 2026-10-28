@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
@@ -9,6 +9,8 @@ import AboutPage from '../../../features/about/about-page';
 import CoursesPage from '../../../features/courses/courses-page';
 import DashboardPage from '../../../features/dashboard/dashboard-page';
 import HomePage from '../../../features/home/home-page';
+import { MenuOption } from '../../types/menu-option';
+import { MENU_OPTIONS } from '../../../app.routes';
 
 @Component({
   imports: [
@@ -46,9 +48,9 @@ import HomePage from '../../../features/home/home-page';
     }
   `,
   template: `
-    <ind-header>
+    <ind-header [app-title]="title()" [subtitle]="subtitle()">
       <ind-logo-coders slot="logo" />
-      <ind-menu slot="menu" />
+      <ind-menu [menuOptions]="menuOptions()" slot="menu" />
     </ind-header>
     <main class="container">
       <h2>Páginas</h2>
@@ -74,5 +76,10 @@ import HomePage from '../../../features/home/home-page';
   `,
 })
 export class App {
-  // private readonly title = signal('Demo 01');
+  private readonly title = signal('Demo 02');
+  private readonly subtitle = signal('Aprendiendo Angular 22');
+
+ protected readonly menuOptions = signal<MenuOption[]>(MENU_OPTIONS);
+ 
+
 }

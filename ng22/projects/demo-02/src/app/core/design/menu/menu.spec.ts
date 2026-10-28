@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Menu } from './menu';
 import { By } from '@angular/platform-browser';
+import { MENU_OPTIONS } from '../../../app.routes';
 
 describe('Menu', () => {
   let component: Menu;
@@ -13,6 +14,7 @@ describe('Menu', () => {
 
     fixture = TestBed.createComponent(Menu);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('menuOptions', MENU_OPTIONS);
     await fixture.whenStable();
   });
 
