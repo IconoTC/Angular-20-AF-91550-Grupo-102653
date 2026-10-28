@@ -1,4 +1,5 @@
-import { Component,  output,  signal } from '@angular/core';
+import { Component, input, linkedSignal, output, signal } from '@angular/core';
+import { CounterState } from '../../types/counter-state';
 
 const LIMIT = 5;
 
@@ -23,28 +24,29 @@ const LIMIT = 5;
     }
   `,
   template: `
+    <h3>Counter {{ state().id }}</h3>
     <p>
-      Clicks: <output>{{ clicks() }}</output>
+      Clicks: <output>{{ state().clicks }}</output>
     </p>
     <!-- <p>Value: <output [class]=" count() < 0 ? 'negative' : '' ">{{ count() }}</output></p> -->
     <!-- <p>Value: <output [class]=" {negative: count() < 0 }">{{ count() }}</output></p> -->
 
     <p>
-      Value: <output [class.negative]="count() < 0">{{ count() }}</output>
+      Value: <output [class.negative]="state().count < 0">{{ state().count }}</output>
     </p>
     <div>
-      <button (click)="changeCount(-1)" title="Decrement" [disabled]="count() <= -limit()">
+      <button (click)="changeCount(-1)" title="Decrement" [disabled]="state().count <= -limit()">
         ➖
       </button>
-      <button (click)="changeCount(1)" title="Increment" [disabled]="count() >= limit()">➕</button>
-      <button (click)="resetCount()" title="Reset" [disabled]="count() === 0 && clicks() === 0">
+      <button (click)="changeCount(1)" title="Increment" [disabled]="state().count >= limit()">➕</button>
+      <button (click)="resetCount()" title="Reset" [disabled]="state().count === 0 && state().clicks === 0">
         🟣
       </button>
     </div>
     <div class="limit-reached">
-      <p [hidden]="count() < limit()">Limite {{ limit() }} alcanzado</p>
+      <p [hidden]="state().count < limit()">Limite {{ limit() }} alcanzado</p>
       <p>
-        @if (count() <= -limit()) {
+        @if (state().count <= -limit()) {
           <p>Limite -{{ limit() }} alcanzado</p>
           <p></p>
         }
@@ -55,28 +57,54 @@ const LIMIT = 5;
   `,
 })
 export class Counter {
-  protected readonly clicks = signal(0);
-  protected readonly count = signal(0);
+  readonly state = input.required<CounterState>();
 
-  protected readonly limit = signal(LIMIT);
+  protected readonly clicks = linkedSignal(() => this.state().clicks);
+  protected readonly count = linkedSignal(() => this.state().count);
 
-  //  @Output() protected readonly countChange = new EventEmitter<number>();
+  protected readonly limit = signal(LIMIT);  
 
-   protected readonly countChange = output<number>()
+  //  @Output() protected readonly countChange = new EventEmitter<CounterState>();
 
+  protected readonly countChange = output<CounterState>();
+
+
+// constructor() {
+//   effect(() => {
+//     console.log('Effect', this.state());
+
+//     this.count.set(this.state().count);
+//     this.clicks.set(this.state().clicks);
+//   });
+// }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected changeCount(value: number): void {
     // this.count.set(this.count() + value);
     // this.clicks.set(this.clicks() + 1);
+    
     this.count.update((current) => current + value);
     this.clicks.update((current) => current + 1);
 
-    this.countChange.emit(this.count());
+    const state: CounterState = {
+      id: this.state().id,
+      count: this.count(),
+      clicks: this.clicks(),
+    }
+
+    this.countChange.emit(state);
   }
 
   protected resetCount(): void {
     this.count.set(0);
     this.clicks.set(0);
 
-    this.countChange.emit(this.count());
+    const state: CounterState = {
+      id: this.state().id,
+      count: this.count(),
+      clicks: this.clicks(),
+    }
+
+    this.countChange.emit(state);
   }
 }
