@@ -2,9 +2,10 @@ import { Component, signal } from '@angular/core';
 import { CourseDetails } from './components/course-details/course-details';
 import { CourseItem } from './components/course-item/course-item';
 import { Card } from '../../core/design/card/card';
+import { Timestamp } from '../../core/design/timestamp/timestamp';
 
 @Component({
-  imports: [Card, CourseItem, CourseDetails],
+  imports: [Card, Timestamp, CourseItem, CourseDetails],
   selector: 'ind-courses-page',
   styleUrls: ['../page.css'],
   styles: ``,
@@ -13,6 +14,7 @@ import { Card } from '../../core/design/card/card';
     <ind-card>
       <ind-course-item />
     </ind-card>
+    <ind-timestamp />
 
     <details>
       <summary>Detalle del curso</summary>

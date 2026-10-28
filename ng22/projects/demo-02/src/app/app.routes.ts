@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { MenuOption } from './core/types/menu-option';
+import { TimeService } from './core/services/time.service';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,9 @@ export const routes: Routes = [
     loadComponent: () => import('./features/dashboard/dashboard-page'),
     title: 'Dashboard | Demo 02',
     data: { label: 'Dashboard' },
+    providers: [
+      TimeService
+    ]
   },
   {
     path: 'courses',
