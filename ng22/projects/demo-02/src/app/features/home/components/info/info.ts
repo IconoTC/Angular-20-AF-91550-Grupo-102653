@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
+import { DatePipe, TitleCasePipe } from '@angular/common';
 import { Timestamp } from '../../../../core/design/timestamp/timestamp';
 import { TimeService } from '../../../../core/services/time.service';
 
 @Component({
-  imports: [Timestamp],
+  imports: [Timestamp, DatePipe, TitleCasePipe],
   selector: 'ind-info',
   providers: [
     TimeService
@@ -63,7 +64,7 @@ import { TimeService } from '../../../../core/services/time.service';
     <footer>
       <ul>
         <li>Autor: {{ author() }}</li>
-        <li>Fecha: {{ currentDate() }}</li>
+        <li>Fecha: {{ currentDate() | date : 'fullDate' | titlecase }}</li>
       </ul>
     </footer>
     <ind-timestamp />
@@ -71,5 +72,5 @@ import { TimeService } from '../../../../core/services/time.service';
 })
 export class Info {
   protected readonly author = signal('Alejandro Cerezo');
-  protected readonly currentDate = signal(new Date().toLocaleDateString());
+  protected readonly currentDate = signal(new Date());
 }
