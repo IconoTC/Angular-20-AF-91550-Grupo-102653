@@ -77,7 +77,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - `Introducción a estado compartido simple sin NgRx` 
   - Conceptos de gestión de estado reactivo a mayor escala (sin librerías externas).
 - Testing de componentes y servicios 
-  - `Importancia de testear en Angular`
+  - `Importancia de testar en Angular`
   - `Configuración del entorno de testing` 
   - `Pruebas de componentes` 
   - `Pruebas de servicios` 
@@ -121,23 +121,21 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 - Workspace y proyectos en Angular (continuation).
   - Añadiendo ESLint (`ng add`) y Prettier.
-  - Estructura de un workspace/proyecto Angular. -->
+  - Estructura de un workspace/proyecto Angular.
 
 <!-- 
   - Creación de un workspace+proyecto desde Vitest. `npm create vitest@latest` 
 -->
 
  
-- Angular CLI: Comandos básicos (1).
+- Angular CLI: Comandos básicos.
   - Servidor de desarrollo: `ng serve`.
-  - Construcción del proyecto: `ng build`.
-
-- Angular CLI: Comandos básicos (2).
   - Testing con Vitest: `ng test`.
   - Testing con Playwright: `ng e2e`
+  - Construcción del proyecto: `ng build`.
   - Despliegue: `ng deploy`. Opciones
 
-- Generación de componentes: `ng generate`.
+- Generación de componentes: `ng generate component <nombre>`.
   - Elementos de un componente: HTML, CSS, TypeScript. 
   - Scaffolding 
   - Estilos globales: variables, reset...
@@ -164,7 +162,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Guía de estilos actualizada
  
   - Componente 🧿CourseItem
-  - Tipos y datos
+    - Tipos y datos
     - Estilos: Encapsulación de estilos. ViewEncapsulation.
     - Programación declarativa en el template: 
       - Del componente a la vista: interpolación {{}}, binding de propiedades []
@@ -192,24 +190,26 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 ### Día 2 (M-27): Componentes del Layout. Paginas
 
-<!-- - Componente 🧿CourseItemPro
+- Componente 🧿CourseDetails
   - Eventos
   - Computed signals
 
 - Testing de componentes. Pruebas unitarias
     - Interacción con el componente (e.g. click en un botón).
 
+[descanso]: 11:45 - 12:15
+
 - Scaffolding. Core
   - Componente 🧿Header. Estructura básica en CSS: Grid
   - Componente 🧿Footer
-   - Test de Header y Footer -->
-
-[descanso]: 11:15 - 1145
-
-
-<!-- - Componente 🧿LogoCoders. Fichero svg como template
+   - Test de Header y Footer 
+ 
+- Componente 🧿LogoCoders. Fichero svg como template
 - Componente 🧿User. Svg como parte del template
     - Test de LogoCoders. Spies & mocks
+
+[comida]: 14:00 - 15:00
+
   - Componente 🧿Card. Proyección de contenido
     - Uso en el componente 🧿App como contenedor principal.
     - Test de Card. TestingComponent
@@ -218,21 +218,16 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - 🧿Menu. Tipo y datos. Iteración con @for
   - Incorporación en App
   - Test de Menu. Renderizado y @for 
-  - 🧿Socials. @for + @switch: iconos svg de las redes sociales -->
 
 <!-- 
+  - 🧿Socials. @for + @switch: iconos svg de las redes sociales 
   - Test de Socials. Renderizado y @for @switch
 -->
 
-<!-- - Componentes CSS
+- Componentes CSS
   - 🧿Separador. Componente de CSS 
-  - 🧿toggle: Widget css como componente Angular -->
-
-
-[comida]: 14:00 - 15:00
-
-<!-- - Componentes CSS (continuación)
   - 🧿toggle: Widget css como componente Angular
+
 
 - Componente 🧿Search. Input de usuario: 2 way data binding. [(ngModel)]
 - Referencias locales. #ref
@@ -243,14 +238,11 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 - Componente 🧿SearchRef. Referencias locales en el template.  
 - Test de Search. Renderizado y data binding
 
+
 - Nuevo proyecto (app): demo-02.  `ng g app demo-02 --style css --ssr false -p ind -t -s`  
   - Eliminamos componentes innecesarios
     - SearchRef
     - CourseItemSignals 
-
-- Scaffolding. Features
-  - Componentes (pages): 🧿Home, 🧿Dashboard, 🧿Courses, 🧿About (Angular).
-  - Test de las páginas -->
 
 <!-- 
    - Ejercicio de componentization
@@ -258,6 +250,12 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 -->
 
 ### Día 3 (X-28). Comunicaciones entre Componentes. Rutas, Servicios 
+
+<!-- 
+- Scaffolding. Features
+  - Componentes (pages): 🧿Home, 🧿Dashboard, 🧿Courses, 🧿About (Angular).
+  - Test de las páginas -->
+
 
 <!-- - Comunicación entre componentes (1)
   - Input. Decoradores @Input. función input(). Drilling
