@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, OnInit, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -68,26 +68,25 @@ import { FormsModule } from '@angular/forms';
     </button>
   `,
 })
-export class Search implements OnInit {
+export class Search {
   protected readonly searchText = signal('');
   protected readonly size = signal('1rem');
 
   protected readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
 
-  constructor() {
-    console.log('Constructor', this.searchInput());
+  // constructor() {
+  //   console.log('Constructor', this.searchInput());
 
 
-    effect(() => {
-      console.log('Effect', this.searchInput());  
-    })
+  //   effect(() => {
+  //     console.log('Effect', this.searchInput());  
+  //   })
 
-  }
+  // }
 
-  ngOnInit(): void {
-    console.log('ngOnInit', this.searchInput());
-  }
-
+  // ngOnInit(): void {
+  //   console.log('ngOnInit', this.searchInput());
+  // }
 
   resetSearch() {
     this.searchInput()?.nativeElement.focus();
