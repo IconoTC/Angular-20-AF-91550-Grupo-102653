@@ -5,10 +5,6 @@ import { Footer } from '../footer/footer';
 import { Card } from '../../design/card/card';
 import { LogoCoders } from '../logo-coders/logo-coders';
 import { Menu } from '../../design/menu/menu';
-import AboutPage from '../../../features/about/about-page';
-import CoursesPage from '../../../features/courses/courses-page';
-import DashboardPage from '../../../features/dashboard/dashboard-page';
-import HomePage from '../../../features/home/home-page';
 import { MenuOption } from '../../types/menu-option';
 import { MENU_OPTIONS } from '../../../app.routes';
 
@@ -20,10 +16,6 @@ import { MENU_OPTIONS } from '../../../app.routes';
     Card,
     LogoCoders,
     Menu,
-    HomePage,
-    DashboardPage,
-    CoursesPage,
-    AboutPage,
   ],
   selector: 'ind-root',
   styles: `
@@ -53,24 +45,10 @@ import { MENU_OPTIONS } from '../../../app.routes';
       <ind-menu [menuOptions]="menuOptions()" slot="menu" />
     </ind-header>
     <main class="container">
-      <h2>Páginas</h2>
-      <ind-card id="home">
-        <ind-home-page />
+      <ind-card >
+        <router-outlet />
+        <!-- Aquí van las páginas de la aplicación -->
       </ind-card>
-
-      <ind-card id="dashboard">
-        <ind-dashboard-page />
-      </ind-card>
-
-      <ind-card id="courses">
-        <ind-courses-page />
-      </ind-card>
-
-      <ind-card id="about">
-        <ind-about-page />
-      </ind-card>
-
-      <router-outlet />
     </main>
     <ind-footer />
   `,

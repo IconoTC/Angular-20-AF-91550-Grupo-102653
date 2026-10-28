@@ -10,3 +10,5 @@ import { Component, signal } from '@angular/core';
 export default class HomePage {
   protected readonly title = signal('Inicio');
 }
+
+
