@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Card } from '../../core/design/card/card';
 import { Info } from './components/info/info';
+import { Logger } from '../../core/services/logger';
 
 @Component({
   imports: [Card, Info],
@@ -15,5 +16,12 @@ import { Info } from './components/info/info';
   `,
 })
 export default class HomePage {
+
+  protected readonly logger = inject(Logger);
   protected readonly title = signal('Inicio');
+
+  constructor() {
+    console.log('Logger level', this.logger.level);
+    this.logger.log('Usando el logger de logs');
+  }
 }
