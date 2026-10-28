@@ -219,11 +219,6 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Incorporación en App
   - Test de Menu. Renderizado y @for 
 
-<!-- 
-  - 🧿Socials. @for + @switch: iconos svg de las redes sociales 
-  - Test de Socials. Renderizado y @for @switch
--->
-
 - Componentes CSS
   - 🧿Separador. Componente de CSS 
   - 🧿toggle: Widget css como componente Angular
@@ -244,20 +239,18 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
     - SearchRef
     - CourseItemSignals 
 
-<!-- 
-   - Ejercicio de componentization
-    - 🧿Componentes incluidos en la demo de Angular
--->
+- TAREA:
+  - 🧿Socials. @for + @switch: iconos svg de las redes sociales 
+  - Test de Socials. Renderizado y @for @switch
 
 ### Día 3 (X-28). Comunicaciones entre Componentes. Rutas, Servicios 
 
-<!-- 
 - Scaffolding. Features
   - Componentes (pages): 🧿Home, 🧿Dashboard, 🧿Courses, 🧿About (Angular).
-  - Test de las páginas -->
+  - Test de las páginas
 
 
-<!-- - Comunicación entre componentes (1)
+- Comunicación entre componentes (1)
   - Input. Decoradores @Input. función input(). Drilling
 
 - Dashboard.
@@ -268,21 +261,23 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Test de Counter. Eventos. Errores al testar implementación
 
 - Comunicación entre componentes (2) 
-  - 🧿CounterList. Agrupando contadores. Estado en el componente padre -->
+  - 🧿CounterList. Agrupando contadores. 
+  - Output. Decorador @Output. EventEmitter. Función output(). Eventos del contador
+    - Contadores. Eventos con valor 
 
-[descanso]: 11:20 - 11:50
+[descanso]: 11:30 - 12:00
 
-<!-- - Comunicación entre componentes (3) 
-  - Input en los contadores. Revision de los totales
+
+- Comunicación entre componentes (3) 
+  - Estado en el componente padre (contenedor/controlador)
+    - Input en los contadores. Revision de los totales
+    - Respuesta a los eventos
     - input() y linkedSignal
     - sincronización de diversas "fuentes" de cambio
-  - Output. Decorador @Output. EventEmitter. Función output(). Eventos del contador
-    - Contadores. Eventos con valor  
-   - Respuesta a los eventos. Estado en el componente padre (contenedor/controlador).
-  - Computed signals  -->
+  - Computed signals  
 
 <!--
-  - Test de inputs y outputs.  
+  - Test de inputs y outputs.  (comentado)
 -->
 
 <!-- SOLO COMENTADO 
