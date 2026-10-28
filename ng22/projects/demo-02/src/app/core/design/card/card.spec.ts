@@ -21,7 +21,7 @@ describe('Card', () => {
       imports: [Card],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Card);
+    fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
@@ -32,7 +32,7 @@ describe('Card', () => {
 
   it('should render content inside the card', () => {
     fixture.detectChanges();
-    const cardElement: HTMLElement = fixture.nativeElement.querySelector('ind-card');
+    const cardElement: HTMLElement = fixture.nativeElement.querySelector('p');
     expect(cardElement.textContent).toContain('Card content');
   });
 });

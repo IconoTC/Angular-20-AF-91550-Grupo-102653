@@ -24,7 +24,7 @@ describe('Header', () => {
   // test de caja blanca
 
   it('should have as title "Demo 01"', () => {
-    expect(component['title']()).toEqual('Demo 01');
+    expect(component['title']()).toEqual('Demo 02');
   });
 
   // Test de comportamiento
@@ -33,13 +33,13 @@ describe('Header', () => {
   it('should render title', async () => {
     const element = fixture.nativeElement as HTMLElement;
     const h1 = element.querySelector('h1');
-    expect(h1?.textContent).toContain('Demo 01');
+    expect(h1?.textContent).toContain('Demo 02');
   });
 
   it('should render title (by debug)', async () => {
     const debugElement = fixture.debugElement;
     const h1Debug = debugElement.query(By.css('h1'));
     const h1 = h1Debug?.nativeElement as HTMLElement;
-    expect(h1?.textContent).toContain('Demo 01');
+    expect(h1?.textContent).toContain('Demo 02');
   });
 });
