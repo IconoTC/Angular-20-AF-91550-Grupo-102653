@@ -1,7 +1,8 @@
 import { Component, signal } from '@angular/core';
+import { Socials } from '../socials/socials';
 
 @Component({
-  imports: [],
+  imports: [Socials],
   selector: 'ind-footer',
   styles: `
     :host {
@@ -28,7 +29,7 @@ import { Component, signal } from '@angular/core';
         <p>{{ autor() }}</p>
         <p>{{ brand() }} © {{ today().getFullYear() }}</p>
       </address>
-      <p>Aquí irían las redes sociales</p>
+      <ind-socials />
     </footer>
   `,
 })
