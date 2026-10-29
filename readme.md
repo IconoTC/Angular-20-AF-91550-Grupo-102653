@@ -347,16 +347,18 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Servicio Auth. Login simulado con Observables y con Promesas.
   - Test del servicio Auth. Casos de uso 
 
-
-[descanso] - 11:20 - 11:50
-
-  <!-- - Rutas anidadas. 
+  - Rutas anidadas. 
     - Login y Register
     - Fichero de rutas propio de Auth. `auth.routes.ts`
+
+[descanso] - 11:25 - 11:55
+
+  
   - Rutas con parámetros
     - LoginPage. Parámetros y formularios posibles
       (td, md-rx, signals)
-    - @if / @switch -->
+    - @if / @switch 
+    - menu de selección
 
 <!-- COMENTADO
  
@@ -365,15 +367,16 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
     - respuesta a la navegación. router.events.subscribe()
 -->
 
-<!-- - 🧿Componente LoginFormTd: Forms Template Driven (TD)
+- 🧿Componente LoginFormTd: Forms Template Driven (TD)
     - NgForm implícito, NgModel. Referencias locales
     - Paso de ngForm al onSubmit: form.value; form.reset()
-    - Validaciones nativas de HTML. Mensajes de validación -->
+    - Validaciones nativas de HTML. Mensajes de validación
+    - Submit y navegación a otra página. router.navigate()
 
 [comida] 14:00 - 15:00
 
-<!-- - 🧿Componente LoginFormTd: Forms Template Driven (TD)
-  - Submit y navegación a otra página. router.navigate()
+- 🧿Componente LoginFormTd: Forms Template Driven (TD)
+  - Rutas con estado
 
 - 🧿Componente LoginFormMdRx: Formularios reactivos (MD). LoginForm
   - FormGroup, FormControl, FormBuilder
@@ -385,14 +388,15 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Model (signal), FieldTree, FieldState 
   - Binding desde el template  [formField] y (submit)
   - Schema de validación
-  - Directiva FormRoot y submit -->
+  - Directiva FormRoot y submit
 
 <!--
 - RegisterForm. Otros controles HTML (comentado)
 -->
 
-<!-- - Custom controls
-  -  🧿Componente Input. [FormValueControl]   -->
+ - Custom controls
+  -  🧿Componente Input. [FormValueControl]
+  - Uso del 🧿Componente Input en un formulario con Signals
 
 <!-- NO INCLUIDO -->
 <!-- - Testing de formularios reactivos. -->
@@ -406,11 +410,11 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 ### Día 5 (V-30).  Arquitectura. Servicios repo (HTTP) y state 
 
-<!-- - Custom controls
-  - Use 🧿Componente Input in signal form
-  - Herencia entre componentes
+- Custom controls
+  - Solución de problemas: (blur)
+  - Incorporación del CSS
 
-
+<!-- 
 - Arquitectura de componentes
   - Componentes de contenedores vs de presentación.
   - Componentes inteligentes vs tontos.
