@@ -328,7 +328,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - (Comentado) Pipes propios. Ejemplo: Pipe de `truncate`
 
 
-- Directivas. Estructurales y de atributo -->
+- Directivas. Estructurales y de atributo
 
 <!-- Solo comentado 
 - Directivas propias
@@ -339,13 +339,14 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 ### Día 4 (J-29). Servicios y asincronía. Formularios TD, DD, SD
 
-<!-- - Feature Auth
+- Feature Auth
   
 - RxJS (Observables)
   - Introducción. Observables, subscription, operadores.
  
   - Servicio Auth. Login simulado con Observables y con Promesas.
-  - Test del servicio Auth. Casos de uso -->
+  - Test del servicio Auth. Casos de uso 
+
 
 [descanso] - 11:20 - 11:50
 
