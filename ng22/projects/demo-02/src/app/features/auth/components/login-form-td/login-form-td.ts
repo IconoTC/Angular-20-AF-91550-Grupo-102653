@@ -106,12 +106,14 @@ export class LoginFormTd {
 
         if(response.error) {
           console.log('Login error:', response)
-          return
+        } else {
+          console.log('Login successful:', response)
         }
 
-        console.log('Login successful:', response)
         loginForm.resetForm(this.#initialData);
-        this.#router.navigate(['/auth', 'login', 'info']);
+        this.#router.navigate(['/auth', 'login', 'info'], {
+          state: response 
+        });
       },
       error: (error) => {
         console.error('Login failed:', error);
