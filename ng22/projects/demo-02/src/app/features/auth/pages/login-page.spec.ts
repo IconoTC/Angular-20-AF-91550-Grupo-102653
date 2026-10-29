@@ -15,6 +15,7 @@ describe('LoginPage', () => {
 
     fixture = TestBed.createComponent(LoginPage);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('formType', 'td');
     await fixture.whenStable();
   });
 
