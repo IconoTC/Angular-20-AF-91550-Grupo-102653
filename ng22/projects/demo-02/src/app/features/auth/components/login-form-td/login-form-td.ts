@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, effect, inject, viewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { LoginRequest } from '../../types/login';
 import { Auth } from '../../services/auth';
@@ -66,7 +66,7 @@ import { Router } from '@angular/router';
 export class LoginFormTd {
 
   // protected readonly form = viewChild<ElementRef<HTMLFormElement>>('form')
-  // protected readonly loginForm = viewChild<NgForm>('loginForm')
+  protected readonly loginForm = viewChild<NgForm>('loginForm')
 
   readonly #auth = inject(Auth)
   readonly #destroyRef = inject(DestroyRef)
@@ -78,14 +78,14 @@ export class LoginFormTd {
     rememberMe: false,
   }
 
-  // constructor() {
+  constructor() {
 
-  //   effect(() => {
-  //     console.log('Form:', this.form());
-  //     console.log('NgForm:', this.loginForm());
-  //   })
+    effect(() => {
+      // console.log('Form:', this.form());
+      console.log('NgForm:', this.loginForm());
+    })
 
-  // }
+  }
 
   login(loginForm: NgForm) {
 
