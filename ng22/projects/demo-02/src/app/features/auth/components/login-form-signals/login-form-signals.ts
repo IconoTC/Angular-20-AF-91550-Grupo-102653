@@ -13,9 +13,10 @@ import {
 import { JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { Auth } from '../../services/auth';
+import { Input } from '../../../../core/design/input/input';
 
 @Component({
-  imports: [FormField, FormRoot, JsonPipe],
+  imports: [FormField, FormRoot, JsonPipe, Input],
   selector: 'ind-login-form-signals',
   styles: `
     form {
@@ -68,13 +69,20 @@ import { Auth } from '../../services/auth';
   `,
   template: `
     <form [formRoot]="loginFieldTree">
-      <label for="email" class="form-control">
+
+      <!-- <label for="email" class="form-control">
         <span>Email:</span>
         <input type="email" id="email" [formField]="loginFieldTree.email" />
       </label>
       @if (loginFieldTree.email()?.invalid() && loginFieldTree.email()?.touched()) {
         <p class="error">{{ loginFieldTree.email().errors()[0]?.message }}</p>
-      }
+      } -->
+
+      <ind-input 
+        type="email"
+        label="Email" 
+        [formField]="loginFieldTree.email" />
+
 
       <label for="password" class="form-control">
         <span>Password:</span>
