@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'ind-user',
   styles: ``,
   template: `
     <nav>
-      <a href="#" (click)="onClick()">
+      <a [routerLink]="['auth', 'login']" (click)="onClick()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 640 640"

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MenuOption } from './core/types/menu-option';
 import { TimeService } from './core/services/time.service';
+import { authRoutes } from './features/auth/routes/auth.routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -38,6 +39,11 @@ export const routes: Routes = [
     data: { label: 'Acerca de' },
   },
 
+  {
+    path: 'auth',
+    //loadChildren: () => import('./features/auth/auth-page'),
+    children: authRoutes
+  },
   { path: '**', redirectTo: 'home' },
 ];
 
