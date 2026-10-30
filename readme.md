@@ -395,7 +395,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 -->
 
  - Custom controls
-  -  🧿Componente Input. [FormValueControl]
+  - 🧿Componente Input. [FormValueControl]
   - Uso del 🧿Componente Input en un formulario con Signals
 
 <!-- NO INCLUIDO -->
@@ -414,7 +414,6 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Solución de problemas: (blur)
   - Incorporación del CSS
 
-<!-- 
 - Arquitectura de componentes
   - Componentes de contenedores vs de presentación.
   - Componentes inteligentes vs tontos.
@@ -426,18 +425,21 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Componente Courses-Item. Input y Output (Eventos)
   - Componente Courses-Form. Output (Eventos) 
 
+[descanso] 11:20 - 11:50
+
 - Servicios y patrón Repository
   - Mock de datos. Interface de los repositorios
+  - Repositorios usando RxJS (Observables). 
+
+<!-- 
   - Uso de promesas en los servicios.
-  - Los mismos repositorios usando RxJS (Observables). 
   - Uso del repo en el componente
+  - -->
 
 - API server fake basado en JSONServer.
-  - Prueba con Postman -->
+  - Prueba con Postman
 
-[descanso] 11:30 - 12:00
-
-<!-- - Uso de environments
+- Uso de environments
 
  Servicio HttpClient. Observables (RxJs).
 
@@ -447,7 +449,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Métodos CRUD. add(), update(), delete()
 
   - Uso desde el componente (Courses-List). 
-    - Repositorio y lógica de negocio (estado). Estrategias  -->
+    - Repositorio y lógica de negocio (estado). Estrategias  
   
 
 <!-- NO INCLUIDO
@@ -456,19 +458,20 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Test de componentes con servicios HTTP (mocks y spies).
 -->
 
-<!-- - Nuevo proyecto (app): demo-03.  
+- Nuevo proyecto (app): demo-03.  
   `ng g app demo-03 --style css --ssr false -p ind -t -s` 
 
-- Servicios stateful: patrón Flux -->
 
-<!-- 
+- Servicios stateful: patrón Flux
+
+<!-- Comentado
   - Estado con RxJS: Subjects
     - Estado privado con BehaviorSubject
     - Estado público con Observable (asObservable)
     - Métodos para modificar el estado (add, toggle, remove)
 -->
   
-  <!-- - Estado con Signals: signal (WriteableSignal) y readOnly/computed (Signal)
+ - Estado con Signals: signal (WriteableSignal) y readOnly/computed (Signal)
   
   - Servicio Store con CoursesState
     - Estado privado con WriteableSignal
@@ -476,8 +479,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
     - Métodos para modificar el estado (add, toggle, remove)
 
 - Uso del estado desde los componentes Courses...
-- Gestión de errores
-- Uso desde cualquier parte de la aplicación (Header)  -->
+- Uso desde cualquier parte de la aplicación (Header) 
 
 
 <!-- NO INCLUIDO
