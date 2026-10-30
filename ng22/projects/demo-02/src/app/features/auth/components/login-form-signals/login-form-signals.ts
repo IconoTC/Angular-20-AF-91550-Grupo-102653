@@ -78,19 +78,25 @@ import { Input } from '../../../../core/design/input/input';
         <p class="error">{{ loginFieldTree.email().errors()[0]?.message }}</p>
       } -->
 
-      <ind-input 
+      <ind-input
         type="email"
-        label="Email" 
+        label="Email"
         [formField]="loginFieldTree.email" />
 
 
-      <label for="password" class="form-control">
+      <!-- <label for="password" class="form-control">
         <span>Password:</span>
         <input type="password" id="password" [formField]="loginFieldTree.password" />
       </label>
       @if (loginFieldTree.password()?.invalid() && loginFieldTree.password()?.touched()) {
         <p class="error">{{ loginFieldTree.password().errors()[0]?.message }}</p>
-      }
+      } -->
+
+
+      <ind-input
+        type="password"
+        label="Password"
+        [formField]="loginFieldTree.password" />
 
       <label for="remember" class="form-control checkbox">
         <input type="checkbox" id="remember" [formField]="loginFieldTree.rememberMe" />
