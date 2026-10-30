@@ -1,6 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
-import { getCourses } from '../../data/courses';
 import { Course } from '../../types/course';
+import { COURSES } from '../../data/courses';
 
 const MIN_STAT = 0;
 const MAX_STAT = 10;
@@ -177,7 +177,7 @@ export class CourseDetails {
   protected readonly minStat = MIN_STAT;
   protected readonly maxStat = MAX_STAT;
 
-  protected readonly course = signal(getCourses()[0]);
+  protected readonly course = signal(COURSES[0]);
   protected readonly average = computed(() => {
     const course = this.course();
     return (

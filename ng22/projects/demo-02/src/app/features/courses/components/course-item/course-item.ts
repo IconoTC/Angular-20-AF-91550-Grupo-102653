@@ -1,5 +1,5 @@
-import { Component, signal, ViewEncapsulation } from '@angular/core';
-import { getCourses } from '../../data/courses';
+import { Component, input, output, ViewEncapsulation } from '@angular/core';
+import { Course } from '../../types/course';
 
 @Component({
   imports: [],
@@ -28,8 +28,32 @@ import { getCourses } from '../../data/courses';
     <img [src]="course().image" [alt]="course().title" />
     <h2>{{ course().title }}</h2>
     <p>{{ course().description }}</p>
+    <p>
+      <label>
+        <input type="checkbox" 
+          [checked]="course().isOfficial" 
+          (change)="sendChange()"/>
+        Official Course
+      </label>
+    </p>
+    <button (click)="sendDelete()">Eliminar</button>
   `,
 })
 export class CourseItem {
-  protected readonly course = signal(getCourses()[0]);
+
+  readonly course = input.required<Course>();
+
+  readonly changeEvent = output<Course>();
+
+  readonly deleteEvent = output<Course['id']>();
+
+  sendDelete() {
+    // Implement the delete functionality here
+    this.deleteEvent.emit(this.course().id);
+  }
+
+  sendChange() {
+    const updatedCourse = { ...this.course(), isOfficial: !this.course().isOfficial };
+    this.changeEvent.emit(updatedCourse);
+  }
 }

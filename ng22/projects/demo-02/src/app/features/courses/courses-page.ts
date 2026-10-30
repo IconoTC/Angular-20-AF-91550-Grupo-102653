@@ -1,25 +1,23 @@
 import { Component, signal } from '@angular/core';
-import { CourseDetails } from './components/course-details/course-details';
-import { CourseItem } from './components/course-item/course-item';
-import { Card } from '../../core/design/card/card';
 import { Timestamp } from '../../core/design/timestamp/timestamp';
+import { CoursesList } from './components/courses-list/courses-list';
 
 @Component({
-  imports: [Card, Timestamp, CourseItem, CourseDetails],
+  imports: [Timestamp, CoursesList],
   selector: 'ind-courses-page',
   styleUrls: ['../page.css'],
-  styles: ``,
+  styles: `
+    :host {
+      display: block;
+      width: 80vw;
+      margin: 0 auto;
+    }
+  `,
   template: `
     <h2>{{ title() }}</h2>
-    <ind-card>
-      <ind-course-item />
-    </ind-card>
-    <ind-timestamp />
+    <ind-courses-list />
 
-    <details>
-      <summary>Detalle del curso</summary>
-      <ind-course-details />
-    </details>
+    <ind-timestamp />
   `,
 })
 export default class CoursesPage {
