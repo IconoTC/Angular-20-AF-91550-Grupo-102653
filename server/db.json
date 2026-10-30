@@ -41,6 +41,20 @@
         "actualization": 5,
         "utility": 5
       }
+    },
+    {
+      "title": "Docker",
+      "description": "Descripción del curso",
+      "image": "https://via.placeholder.com/150",
+      "isOfficial": false,
+      "duration": "5h",
+      "level": "beginner",
+      "courseStats": {
+        "actualization": 5,
+        "difficulty": 3,
+        "utility": 4
+      },
+      "id": "4BPAAem8ttc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
