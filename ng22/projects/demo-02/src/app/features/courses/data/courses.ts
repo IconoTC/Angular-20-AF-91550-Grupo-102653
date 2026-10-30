@@ -3,7 +3,7 @@ import { Course } from '../types/course';
 
 export const COURSES: Course[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Angular Basics',
     description: 'Learn the basics of Angular',
     duration: '30 hours',
@@ -17,7 +17,7 @@ export const COURSES: Course[] = [
     },
   },
   {
-    id: 2,
+    id: '2',
     title: 'Advanced Angular',
     description: 'Dive deep into Angular',
     duration: '6 hours',
@@ -31,7 +31,7 @@ export const COURSES: Course[] = [
     },
   },
   {
-    id: 3,
+    id: '3',
     title: 'Angular Performance',
     description: 'Optimize your Angular applications',
     duration: '5 hours',
@@ -48,7 +48,7 @@ export const COURSES: Course[] = [
 
 export const getCourses = (isOk = true): Observable<Course[]> => {
   if (isOk) {
-    return of(COURSES).pipe(delay(2000));
+    return of([]).pipe(delay(2000));
   } else {
     return throwError(() => new Error('Failed to fetch courses')).pipe(delay(2000));
   }

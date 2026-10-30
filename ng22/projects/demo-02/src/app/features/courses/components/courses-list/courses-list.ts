@@ -2,10 +2,10 @@ import { Component, DestroyRef, ElementRef, inject, signal, viewChild } from '@a
 import { CourseItem } from '../course-item/course-item';
 import { Card } from '../../../../core/design/card/card';
 import { Course } from '../../types/course';
-import { getCourses } from '../../data/courses';
 import { JsonPipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CoursesForm } from '../courses-form/courses-form';
+import { ApiRepoCourses } from '../../services/api-repo-courses';
 
 @Component({
   imports: [Card, CourseItem, CoursesForm, JsonPipe],
@@ -58,6 +58,7 @@ import { CoursesForm } from '../courses-form/courses-form';
   `,
 })
 export class CoursesList {
+  readonly #repo = inject(ApiRepoCourses);
   readonly #destroyRef = inject(DestroyRef);
 
   protected readonly courses = signal<Course[]>([]);
@@ -70,9 +71,9 @@ export class CoursesList {
     this.loadCourses();
   }
 
-  #generateId() {
-    return Math.trunc(Math.random() * 10_000);
-  }
+  // #generateId() {
+  //   return Math.trunc(Math.random() * 10_000).toString();
+  // }
 
   loadCourses() {
     // getCoursesPromise().then((courses) => {
@@ -82,7 +83,8 @@ export class CoursesList {
     this.isLoading.set(true);
     this.error.set(null);
 
-    getCourses()
+    this.#repo
+      .getAll()
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
         next: (courses) => {
@@ -90,6 +92,7 @@ export class CoursesList {
           this.isLoading.set(false);
         },
         error: (error) => {
+          console.log(error);
           this.error.set(error);
           this.isLoading.set(false);
         },
@@ -100,23 +103,57 @@ export class CoursesList {
   }
 
   addCourses(newCourse: Omit<Course, 'id'>) {
-    const newCourseWithId: Course = {
-      ...newCourse,
-      id: this.#generateId(),
-    };
-    this.courses.update((currentCourses) => [...currentCourses, newCourseWithId]);
-    (this.detailsAdd() as ElementRef<HTMLDetailsElement>).nativeElement.open = false;
+    // const newCourseWithId: Course = {
+    //   ...newCourse,
+    //   id: this.#generateId(),
+    // };
+
+    // asincrona -> api
+
+    this.#repo
+      .add(newCourse)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: (newCourseWithId) => {
+          // sincrona -> estado local
+          this.courses.update((currentCourses) => [...currentCourses, newCourseWithId]);
+          (this.detailsAdd() as ElementRef<HTMLDetailsElement>).nativeElement.open = false;
+        },
+      });
+
+    // this.courses.update((currentCourses) => [...currentCourses, newCourseWithId]);
+    // (this.detailsAdd() as ElementRef<HTMLDetailsElement>).nativeElement.open = false;
   }
 
   updateCourse(updatedCourse: Course) {
-    const updatedCourses = this.courses().map((course) =>
-      course.id === updatedCourse.id ? updatedCourse : course,
-    );
-    this.courses.set(updatedCourses);
+    // asincrono -> api
+
+    const { id, ...data } = updatedCourse;
+    this.#repo
+      .update(id, data)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: (updatedCourse) => {
+          // sincrono -> estado local
+          const updatedCourses = this.courses().map((course) =>
+            course.id === updatedCourse.id ? updatedCourse : course,
+          );
+          this.courses.set(updatedCourses);
+        },
+      });
   }
 
   deleteCourse(courseId: Course['id']) {
-    const updatedCourses = this.courses().filter((course) => course.id !== courseId);
-    this.courses.set(updatedCourses);
+    // asincrona -> api
+    this.#repo
+      .delete(courseId)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: () => {
+          // sincrona -> estado local
+          const updatedCourses = this.courses().filter((course) => course.id !== courseId);
+          this.courses.set(updatedCourses);
+        },
+      });
   }
 }
